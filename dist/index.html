@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Combine presets e exporte seu SVG animado."><title>Ateliê Motion</title><link rel="stylesheet" href="style.css"><script defer src="app.js"></script></head>
+<body>
+<header class="top"><div class="brand"><span class="mark">✳</span> Ateliê <strong>Motion</strong></div><button id="export" class="primary">↓ Exportar SVG</button></header>
+<main>
+<div class="intro"><h1>Editor de movimento</h1><p>Importe um objeto, combine movimentos e exporte um SVG animado.</p></div>
+<div class="workspace">
+<section class="card preview" aria-label="Prévia">
+<div class="panelhead"><h2>Prévia</h2><span id="size"></span></div>
+<div id="stage"><div id="viewport"><img id="object" alt="Objeto em animação"></div></div>
+<div class="transport"><button id="play" class="play" aria-label="Reproduzir">▶</button><input id="seek" type="range" min="0" max="1" step=".001" value="0" aria-label="Posição no tempo"><output id="time"></output><label class="loop"><input type="checkbox" id="loop" checked> Loop</label></div>
+<div class="track" id="track"></div>
+</section>
+<aside class="card inspector" aria-label="Configuração">
+<div class="panelhead"><h2>Objeto</h2></div>
+<div class="asset">
+<label id="drop" for="file" tabindex="0"><span class="upload">↑</span><span><strong id="filename">Objeto de exemplo</strong><small>Importar ou arrastar PNG, JPEG ou SVG</small></span><span class="swap" aria-hidden="true">↺</span></label>
+<input id="file" type="file" accept=".png,.jpg,.jpeg,.svg,image/png,image/jpeg,image/svg+xml" hidden>
+<p id="status" role="status" hidden></p>
+<div class="scale"><label for="scale">Escala do objeto</label><input id="scale" type="range" min="10" max="160" value="56"><output id="scaleValue" for="scale">56%</output></div>
+</div>
+<div class="panelhead motionhead"><h2>Movimento</h2></div>
+<div class="tabs" role="group" aria-label="Etapa da animação"><button data-stage="0">Entrada</button><button data-stage="1">Geral</button><button data-stage="2">Saída</button></div>
+<div class="settings"><p id="hint"></p><div id="presets"></div><label class="duration">Duração <span><input id="duration" type="number" min="0" max="20" step=".01" inputmode="decimal"> s</span></label></div>
+</aside>
+</div>
+<footer>O SVG reproduz a animação no navegador. A importação direta no Figma Design converte o SVG em camadas estáticas.</footer>
+</main>
+</body></html>
